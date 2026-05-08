@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import math
 from pathlib import Path
@@ -7,6 +8,21 @@ from pathlib import Path
 st.set_page_config(
     page_title='GDP dashboard',
     page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
+)
+
+# -----------------------------------------------------------------------------
+# Inject Vercel Web Analytics
+
+# This injects the Vercel Web Analytics tracking script into the page.
+# The analytics will only collect data when deployed on Vercel.
+components.html(
+    """
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    """,
+    height=0,
 )
 
 # -----------------------------------------------------------------------------
