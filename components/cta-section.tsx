@@ -72,7 +72,7 @@ export function CTASection() {
               className="bg-cyan hover:bg-cyan-dark text-navy font-semibold px-10 py-7 text-lg group animate-pulse-glow"
             >
               <a
-                href="https://calendly.com/viewflowsystem/30min"
+                href="https://calendly.com/viewflow-system/30min"
                 target="_blank"
                 rel="noopener noreferrer"
               >
