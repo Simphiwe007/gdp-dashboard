@@ -48,7 +48,7 @@ export function HeroSection() {
                 className="bg-cyan hover:bg-cyan-dark text-navy font-semibold px-8 py-6 text-base group"
               >
                 <a
-                  href="https://calendly.com/viewflowsystem/30min"
+                  href="https://calendly.com/viewflow-system/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
