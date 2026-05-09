@@ -98,11 +98,11 @@ export function Footer() {
             © {new Date().getFullYear()} ViewFlow Systems. All rights reserved.
           </p>
           <a
-            href="mailto:viewflowsystem@gmail.com"
+            href="mailto:ViewFlow-System@outlook.com"
             className="flex items-center gap-2 text-sm text-white/60 hover:text-cyan transition-colors"
           >
             <Mail className="w-4 h-4" />
-            viewflowsystem@gmail.com
+            ViewFlow-System@outlook.com
           </a>
         </div>
       </div>
