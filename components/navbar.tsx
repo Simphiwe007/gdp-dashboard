@@ -67,7 +67,7 @@ export function Navbar() {
               className="bg-cyan hover:bg-cyan-dark text-navy font-medium px-6"
             >
               <a
-                href="https://calendly.com/viewflowsystem/30min"
+                href="https://calendly.com/viewflow-system/30min"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -112,7 +112,7 @@ export function Navbar() {
                 className="w-full bg-cyan hover:bg-cyan-dark text-navy font-medium"
               >
                 <a
-                  href="https://calendly.com/viewflowsystem/30min"
+                  href="https://calendly.com/viewflow-system/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
