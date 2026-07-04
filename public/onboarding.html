@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Free ViewFlow Trial</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+    h1 {
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    .subtitle {
+      color: #64748b;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      color: #0f172a;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    input:focus {
+      outline: none;
+      border-color: #22d3ee;
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #22d3ee;
+      color: #0f172a;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #06b6d4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Start Your Free Trial</h1>
+    <p class="subtitle">7 days of unlimited AI lead qualification + automation. No credit card required.</p>
+
+    <form id="intakeForm">
+      <div class="form-group">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">WhatsApp Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+27831234567">
+      </div>
+
+      <div class="form-group">
+        <label for="agency_name">Agency / Business Name</label>
+        <input type="text" id="agency_name" name="agency_name">
+      </div>
+
+      <button type="submit">Start My 7-Day Free Trial</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('intakeForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const agency_name = document.getElementById('agency_name').value;
+
+      try {
+        const res = await fetch('/api/onboarding/intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, agency_name }),
+        });
+
+        if (res.ok) {
+          alert('Trial signup received! We\'ll reach out within 24 hours.');
+        }
+      } catch (err) {
+        console.error('Submission failed:', err);
+      }
+    });
+  </script>
+</body>
+</html>
