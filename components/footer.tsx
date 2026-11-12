@@ -1,36 +1,45 @@
 "use client"
 
-import { Linkedin, Twitter, Instagram, Mail } from "lucide-react"
+import { Instagram, Mail } from "lucide-react"
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/viewflowos",
+    label: "Instagram",
+    external: true,
+  },
+  {
+    icon: Mail,
+    href: "mailto:ViewFlow-System@outlook.com",
+    label: "Email",
+    external: false,
+  },
 ]
 
+// Only links that resolve to something real. No placeholders: an investor or
+// client clicking any of these must land somewhere genuine.
 const footerLinks = [
   {
     title: "Product",
     links: [
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Results", href: "#results" },
-      { label: "Pricing", href: "#" },
+      { label: "How It Works", href: "/#how-it-works" },
+      { label: "What It Does", href: "/#results" },
+      { label: "Book a Free Audit", href: "/#book" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Contact", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "Contact", href: "mailto:ViewFlow-System@outlook.com" },
+      { label: "Instagram", href: "https://www.instagram.com/viewflowos" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Cookie Policy", href: "#" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ]
@@ -64,6 +73,9 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  {...(social.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-cyan hover:border-cyan/30 transition-colors"
                 >
                   <social.icon className="w-5 h-5" />

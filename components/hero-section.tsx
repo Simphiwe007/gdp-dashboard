@@ -98,7 +98,12 @@ export function HeroSection() {
               <div className="bg-navy rounded-2xl p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-cyan text-sm font-medium">Pipeline Overview</p>
+                    <p className="text-cyan text-sm font-medium">
+                      Pipeline Overview
+                      <span className="ml-2 rounded bg-white/10 px-1.5 py-0.5 text-[10px] align-middle text-white/50">
+                        sample
+                      </span>
+                    </p>
                     <p className="text-white text-2xl font-bold">24 Active Leads</p>
                   </div>
                   <div className="bg-cyan/20 p-3 rounded-xl">

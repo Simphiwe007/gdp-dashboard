@@ -18,7 +18,7 @@ export function CTASection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="py-24 lg:py-32 bg-navy relative overflow-hidden" ref={ref}>
+    <section id="book" className="py-24 lg:py-32 bg-navy relative overflow-hidden" ref={ref}>
       {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-soft-blue/10 rounded-full blur-3xl" />
