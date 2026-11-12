@@ -48,11 +48,11 @@ export function HeroSection() {
                 className="bg-cyan hover:bg-cyan-dark text-navy font-semibold px-8 py-6 text-base group"
               >
                 <a
-                  href="https://calendly.com/viewflow-system/30min"
+                  href="/trial"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book Free Pipeline Audit
+                  Start Free 7-Day Trial
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
