@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
+import { useRef } from "react"
 import { Calendar, Zap, TrendingUp, BarChart3 } from "lucide-react"
 
 const metrics = [
@@ -39,49 +39,6 @@ const metrics = [
     description: "Full backoffice access, no card required",
   },
 ]
-
-function AnimatedCounter({
-  value,
-  prefix,
-  suffix,
-  isInView,
-}: {
-  value: number
-  prefix: string
-  suffix: string
-  isInView: boolean
-}) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!isInView) return
-
-    let start = 0
-    const end = value
-    const duration = 2000
-    const increment = end / (duration / 16)
-
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= end) {
-        setCount(end)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
-      }
-    }, 16)
-
-    return () => clearInterval(timer)
-  }, [isInView, value])
-
-  return (
-    <span>
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  )
-}
 
 export function ResultsSection() {
   const ref = useRef(null)
@@ -121,12 +78,9 @@ export function ResultsSection() {
                   <metric.icon className="w-6 h-6 text-cyan" />
                 </div>
                 <p className="text-4xl lg:text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter
-                    value={metric.value}
-                    prefix={metric.prefix}
-                    suffix={metric.suffix}
-                    isInView={isInView}
-                  />
+                  {metric.prefix}
+                  {metric.value}
+                  {metric.suffix}
                 </p>
                 <p className="text-white font-medium mb-1">{metric.label}</p>
                 <p className="text-sm text-white/60">{metric.description}</p>
