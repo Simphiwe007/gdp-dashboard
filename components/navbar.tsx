@@ -38,7 +38,7 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <img 
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/939c69b79_generated_image-8FSH96UTd6vo4gKDg3pUIdAC7orLKT.png"
               alt="ViewFlow Systems"

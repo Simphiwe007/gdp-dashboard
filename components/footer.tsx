@@ -51,7 +51,7 @@ export function Footer() {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4">
+            <a href="/" className="flex items-center gap-3 mb-4">
               <img 
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/939c69b79_generated_image-8FSH96UTd6vo4gKDg3pUIdAC7orLKT.png"
                 alt="ViewFlow Systems"
