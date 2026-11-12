@@ -77,7 +77,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 rounded-full bg-cyan" />
-                Results in 30 days
+                Live in 48 hours
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 rounded-full bg-cyan" />

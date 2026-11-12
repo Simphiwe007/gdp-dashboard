@@ -7,36 +7,36 @@ import { Calendar, Zap, TrendingUp, BarChart3 } from "lucide-react"
 
 const metrics = [
   {
-    icon: Calendar,
-    value: 20,
-    suffix: "+",
-    prefix: "8-",
-    label: "Qualified Viewings/Month",
-    description: "Consistent flow of ready-to-buy property viewers",
+    icon: Zap,
+    value: 60,
+    suffix: "s",
+    prefix: "<",
+    label: "First Response Target",
+    description: "Automated WhatsApp reply the moment an enquiry arrives",
   },
   {
-    icon: Zap,
-    value: 5,
-    suffix: "x",
+    icon: Calendar,
+    value: 24,
+    suffix: "/7",
     prefix: "",
-    label: "Faster Lead Response",
-    description: "AI responds instantly, never missing a hot lead",
+    label: "Lead Capture",
+    description: "Enquiries captured from any channel, at any hour",
   },
   {
     icon: TrendingUp,
-    value: 40,
-    suffix: "%",
-    prefix: "+",
-    label: "Better Conversion Rates",
-    description: "More leads converting to actual property viewings",
+    value: 3,
+    suffix: " touches",
+    prefix: "",
+    label: "Follow-Up Sequence",
+    description: "Scheduled automatically for day 0, day 1 and day 3",
   },
   {
     icon: BarChart3,
-    value: 100,
-    suffix: "%",
+    value: 7,
+    suffix: " days",
     prefix: "",
-    label: "Predictable Pipeline",
-    description: "Know exactly what to expect each month",
+    label: "Free Trial",
+    description: "Full backoffice access, no card required",
   },
 ]
 
@@ -97,13 +97,13 @@ export function ResultsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-cyan/20 text-cyan px-4 py-2 rounded-full text-sm font-medium mb-6">
-            Proven Results
+            Built, Not Promised
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
-            What Clients Can Expect
+            What The Pipeline Actually Does
           </h2>
           <p className="mt-6 text-lg text-white/70 leading-relaxed">
-            Real numbers from real estate agents who installed our viewing pipeline systems.
+            Product facts, not projections. We have no client results to publish yet, so we are not publishing any. Real numbers will appear here as our founding agents report them.
           </p>
         </motion.div>
 

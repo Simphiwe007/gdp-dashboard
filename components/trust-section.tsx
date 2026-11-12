@@ -3,37 +3,37 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Star, Quote, Shield, Award, Clock, CheckCircle2 } from "lucide-react"
+import { Quote, Shield, Award, Clock, CheckCircle2 } from "lucide-react"
 
 const testimonials = [
   {
     quote:
-      "ViewFlow transformed my business. I went from chasing leads to having qualified buyers booking viewings directly on my calendar. Game changer.",
-    author: "Sarah Mitchell",
-    role: "Senior Agent, RE/MAX Elite",
-    rating: 5,
+      "You work directly with the person who built the system. No support queue, no account manager reading from a script.",
+    author: "Direct access",
+    role: "Founding client benefit",
+    rating: 0,
   },
   {
     quote:
-      "The AI qualification alone saved me 15+ hours a week. Now I only talk to serious buyers who are ready to view and purchase.",
-    author: "David Chen",
-    role: "Team Lead, Coldwell Banker",
-    rating: 5,
+      "Capture, follow-up and booking get configured around how you already work, not forced into a template.",
+    author: "Built around you",
+    role: "Founding client benefit",
+    rating: 0,
   },
   {
     quote:
-      "Finally, a system that delivers what it promises. 12 qualified viewings in my first month. My pipeline has never been more predictable.",
-    author: "Jessica Torres",
-    role: "Independent Broker",
-    rating: 5,
+      "Founding agents keep the rate they signed up on. Your pricing does not move as the product grows.",
+    author: "Rate locked",
+    role: "Founding client benefit",
+    rating: 0,
   },
 ]
 
 const trustBadges = [
   { icon: Shield, label: "Secure & Private" },
-  { icon: Award, label: "Industry Certified" },
+  { icon: Award, label: "No Long-Term Contracts" },
   { icon: Clock, label: "24/7 Automation" },
-  { icon: CheckCircle2, label: "Proven Results" },
+  { icon: CheckCircle2, label: "48-Hour Setup" },
 ]
 
 export function TrustSection() {
@@ -50,15 +50,15 @@ export function TrustSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-cyan/10 text-cyan px-4 py-2 rounded-full text-sm font-medium mb-6">
-            Trusted By Top Agents
+            Now Onboarding
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy text-balance">
             Built For Modern{" "}
             <span className="text-cyan">Real Estate Growth</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {"Don't"} just take our word for it. Hear from agents who have transformed their 
-            lead conversion with ViewFlow Systems.
+            We are onboarding our first agents now. No borrowed logos, no invented
+            reviews: here is exactly what founding clients get.
           </p>
         </motion.div>
 
@@ -96,16 +96,6 @@ export function TrustSection() {
                   <Quote className="w-12 h-12 text-navy" />
                 </div>
 
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-
                 {/* Quote */}
                 <p className="text-navy leading-relaxed mb-6">
                   {`"${testimonial.quote}"`}
@@ -113,14 +103,6 @@ export function TrustSection() {
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center">
-                    <span className="text-cyan font-semibold">
-                      {testimonial.author
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
-                  </div>
                   <div>
                     <p className="font-medium text-navy">{testimonial.author}</p>
                     <p className="text-sm text-muted-foreground">
