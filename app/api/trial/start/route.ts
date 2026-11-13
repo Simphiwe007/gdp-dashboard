@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Server-side proxy to the trial signup function. Keeping this on our own
-// origin avoids any cross-origin issues in the browser and means the site
-// never depends on a third-party endpoint loading successfully.
+// origin avoids cross-origin issues and lets us set the session cookie.
 
 const TRIAL_ENDPOINT =
   process.env.TRIAL_SIGNUP_URL ||
@@ -25,7 +24,20 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await res.json().catch(() => ({}));
-    return NextResponse.json(data, { status: res.status });
+    const out = NextResponse.json(data, { status: res.status });
+
+    // Straight into the portal: sign them in at the moment they enrol.
+    if (res.ok && data?.session_token) {
+      out.cookies.set('vf_session', data.session_token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+      });
+    }
+
+    return out;
   } catch (err) {
     console.error('trial signup proxy failed', err);
     return NextResponse.json(

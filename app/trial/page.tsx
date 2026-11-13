@@ -17,10 +17,12 @@ export default function TrialPage() {
     email: '',
     phone: '',
     agency_name: '',
+    password: '',
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [message, setMessage] = useState('');
   const [trialEnds, setTrialEnds] = useState<string | null>(null);
+  const [already, setAlready] = useState(false);
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -59,6 +61,7 @@ export default function TrialPage() {
       }
 
       setTrialEnds(data?.trial_ends_at ?? null);
+      setAlready(Boolean(data?.already_registered));
       setMessage(data?.message || 'Your trial has started.');
       setStatus('done');
     } catch {
@@ -108,9 +111,9 @@ export default function TrialPage() {
             <div className="mt-10 rounded-xl border border-border bg-light-gray p-5">
               <p className="text-sm text-navy font-semibold mb-1">What happens after 7 days</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Your account stops operating until a monthly subscription is active. Nothing is
-                charged automatically and your data stays exactly where it is, so you can pick up
-                the moment you subscribe.
+                Your account stops operating until a subscription is active. The membership is
+                R1,499 per month. Nothing is charged automatically and your data stays exactly
+                where it is, so you can pick up the moment you subscribe.
               </p>
             </div>
           </div>
@@ -122,7 +125,9 @@ export default function TrialPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan/20 text-navy text-xl font-bold mb-5">
                   &#10003;
                 </div>
-                <h2 className="text-2xl font-bold text-navy">Your trial is active</h2>
+                <h2 className="text-2xl font-bold text-navy">
+                  {already ? 'You already have an account' : 'Your trial is active'}
+                </h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">{message}</p>
 
                 {prettyDate(trialEnds) && (
@@ -136,17 +141,20 @@ export default function TrialPage() {
                   </div>
                 )}
 
-                <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-                  Next step: we will get in touch on the number you gave us to connect your lead
-                  sources and switch the pipeline on for your agency.
-                </p>
-
                 <Link
-                  href="/"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy/90 transition-colors"
+                  href={already ? '/login' : '/portal'}
+                  className="mt-7 inline-flex w-full items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy/90 transition-colors"
                 >
-                  Back to the site
+                  {already ? 'Log in to your account' : 'Open your dashboard'}
                 </Link>
+
+                {!already && (
+                  <p className="mt-4 text-center text-xs text-muted-foreground leading-relaxed">
+                    Your dashboard is already open. Bookmark{' '}
+                    <span className="font-medium text-navy">viewflow-systems.vercel.app/login</span>{' '}
+                    to come back later.
+                  </p>
+                )}
               </div>
             ) : (
               <form onSubmit={submit}>
@@ -183,6 +191,25 @@ export default function TrialPage() {
                       className="w-full rounded-lg border border-border px-3.5 py-2.5 text-navy outline-none focus:border-cyan focus:ring-2 focus:ring-cyan/20"
                       placeholder="you@youragency.co.za"
                     />
+                  </div>
+
+                  <div>
+                    <label htmlFor="password" className="block text-sm font-medium text-navy mb-1.5">
+                      Choose a password <span className="text-cyan-dark">*</span>
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      required
+                      minLength={8}
+                      value={form.password}
+                      onChange={set('password')}
+                      className="w-full rounded-lg border border-border px-3.5 py-2.5 text-navy outline-none focus:border-cyan focus:ring-2 focus:ring-cyan/20"
+                      placeholder="At least 8 characters"
+                    />
+                    <p className="mt-1.5 text-xs text-muted-foreground">
+                      You will use this to log in to your account.
+                    </p>
                   </div>
 
                   <div>
@@ -227,8 +254,15 @@ export default function TrialPage() {
                 </button>
 
                 <p className="mt-4 text-center text-xs text-muted-foreground leading-relaxed">
-                  Seven days of full access. After that a monthly subscription is required to
-                  keep operating. No automatic charges.
+                  Seven days of full access. After that R1,499 per month is required to keep
+                  operating. No automatic charges, no card taken today.
+                </p>
+
+                <p className="mt-4 text-center text-sm text-muted-foreground">
+                  Already have an account?{' '}
+                  <Link href="/login" className="font-medium text-navy underline underline-offset-2">
+                    Log in
+                  </Link>
                 </p>
               </form>
             )}

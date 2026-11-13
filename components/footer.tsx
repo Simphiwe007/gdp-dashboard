@@ -25,6 +25,7 @@ const footerLinks = [
     links: [
       { label: "How It Works", href: "/#how-it-works" },
       { label: "What It Does", href: "/#results" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Start Free Trial", href: "/trial" },
     ],
   },

@@ -62,17 +62,17 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="/login"
+              className="text-sm font-medium text-muted-foreground hover:text-navy transition-colors"
+            >
+              Log in
+            </a>
             <Button
               asChild
               className="bg-cyan hover:bg-cyan-dark text-navy font-medium px-6"
             >
-              <a
-                href="/trial"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start Free Trial
-              </a>
+              <a href="/trial">Start Free Trial</a>
             </Button>
           </div>
 
@@ -111,11 +111,7 @@ export function Navbar() {
                 asChild
                 className="w-full bg-cyan hover:bg-cyan-dark text-navy font-medium"
               >
-                <a
-                  href="/trial"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="/trial">
                   Start Free Trial
                 </a>
               </Button>
