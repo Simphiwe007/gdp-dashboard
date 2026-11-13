@@ -105,12 +105,47 @@ export default async function PortalPage() {
                 charged and your data is still here. Turn the subscription on and everything
                 continues where it left off.
               </p>
-              <a
-                href="mailto:ViewFlow-System@outlook.com?subject=Activate%20my%20ViewFlow%20subscription"
+              <Link
+                href="/subscribe"
                 className="mt-6 inline-flex rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy/90 transition-colors"
               >
-                Activate my subscription
-              </a>
+                Choose a package and pay
+              </Link>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Card or EFT, handled by PayFast. You are charged monthly until you cancel.
+              </p>
+            </>
+          ) : session.status === 'active' ? (
+            <>
+              <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-800">
+                Subscribed
+              </span>
+              <h2 className="mt-4 text-xl font-bold text-navy">
+                {client.plan || 'Your package'} is active
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Your subscription is paid up. Manage or change your package any time.
+              </p>
+              <dl className="mt-6 grid sm:grid-cols-3 gap-4">
+                <div className="rounded-xl bg-light-gray p-4">
+                  <dt className="text-xs uppercase tracking-wide text-muted-foreground">Package</dt>
+                  <dd className="mt-1 font-semibold text-navy">{client.plan || 'Active'}</dd>
+                </div>
+                <div className="rounded-xl bg-light-gray p-4">
+                  <dt className="text-xs uppercase tracking-wide text-muted-foreground">Billed</dt>
+                  <dd className="mt-1 font-semibold text-navy">Monthly</dd>
+                </div>
+                <div className="rounded-xl bg-light-gray p-4">
+                  <dt className="text-xs uppercase tracking-wide text-muted-foreground">Status</dt>
+                  <dd className="mt-1 font-semibold text-navy">Active</dd>
+                </div>
+              </dl>
+              <Link
+                href="/subscribe"
+                className="mt-6 inline-flex rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-navy hover:bg-light-gray transition-colors"
+              >
+                Change package
+              </Link>
             </>
           ) : (
             <>

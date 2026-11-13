@@ -147,6 +147,12 @@ export default function PricingPage() {
               >
                 Start free 7-day trial
               </Link>
+              <Link
+                href="/subscribe"
+                className="mt-2 inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-navy hover:bg-light-gray transition-colors"
+              >
+                Subscribe now instead
+              </Link>
             </div>
           ))}
 
