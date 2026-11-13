@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pricing | ViewFlow Systems',
   description:
-    'ViewFlow Systems pricing. The Starter package is R1,499 per month after a free 7-day trial, with larger packages for teams and multi-branch agencies.',
+    'ViewFlow Systems packages: Starter R1,499, Basic R2,500, Professional R5,000 and Agency R12,000 per month, each after a free 7-day trial.',
 };
 
 type Tier = {
@@ -28,11 +28,56 @@ const tiers: Tier[] = [
     blurb: 'For a solo agent who wants every enquiry answered.',
     featured: true,
     features: [
-      'Every enquiry from your ads, portals and website in one place',
-      'Automatic WhatsApp reply the moment a lead arrives',
+      'Every enquiry from ads, portals and your website in one place',
+      'Automatic WhatsApp reply when a lead arrives',
       'Lead scoring so you talk to buyers who are ready',
-      'Follow-up scheduled for day 0, day 1 and day 3',
-      'Your account and pipeline in the client portal',
+      'Follow-up at day 0, day 1 and day 3',
+      'Your pipeline in the client portal',
+    ],
+  },
+  {
+    code: 'BASIC',
+    name: 'Basic',
+    price: 'R2,500',
+    cadence: 'per month',
+    blurb: 'For an agent ready to work volume every week.',
+    features: [
+      'Everything in Starter',
+      'Dedicated lead pipeline for your agency',
+      'Automated WhatsApp outreach, 50 messages a day',
+      'Lead scoring and prioritisation',
+      'Client portal access',
+      'Weekly performance report',
+    ],
+  },
+  {
+    code: 'PRO',
+    name: 'Professional',
+    price: 'R5,000',
+    cadence: 'per month',
+    blurb: 'For a busy agent or pair who needs the ceiling lifted.',
+    features: [
+      'Everything in Basic',
+      'Priority lead scoring',
+      'Unlimited WhatsApp outreach',
+      'Custom outreach scripts',
+      'Portal access for team members',
+      'Referral programme switched on',
+    ],
+  },
+  {
+    code: 'AGENCY',
+    name: 'Agency',
+    price: 'R12,000',
+    cadence: 'per month',
+    blurb: 'For multi-agent teams and branches that need routing.',
+    features: [
+      'Everything in Professional',
+      'Up to 5 agent seats',
+      'Multi-branch lead routing',
+      'Dedicated account manager',
+      'Monthly ROI review',
+      'Custom integrations and priority support',
     ],
   },
 ];
@@ -57,11 +102,11 @@ export default function PricingPage() {
           Packages and pricing
         </h1>
         <p className="mt-5 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-          Every package starts with seven days free. No setup fee, no contract, and nothing
-          charged automatically when the trial ends.
+          Four packages, all starting with seven days free. No setup fee, no contract, and
+          nothing charged automatically when the trial ends.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-start">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-start">
           {tiers.map((tier) => (
             <div
               key={tier.code}
@@ -105,19 +150,6 @@ export default function PricingPage() {
             </div>
           ))}
 
-          {/* Larger packages: names and prices to be listed once confirmed */}
-          <div className="rounded-2xl border border-dashed border-border p-6 lg:col-span-3">
-            <h2 className="text-lg font-bold text-navy">Larger packages</h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Beyond Starter there are bigger packages for teams and multi-branch agencies, with
-              more agent seats, unlimited outreach and priority support. We are confirming those
-              prices before publishing them, so nothing on this page is a guess.
-            </p>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              If you are running a team and Starter is too small, start the trial and tell us your
-              agency size. We will put you on the right package before anything is charged.
-            </p>
-          </div>
         </div>
 
         <div className="mt-8 rounded-xl border border-border bg-light-gray p-6">

@@ -111,9 +111,10 @@ export default function TrialPage() {
             <div className="mt-10 rounded-xl border border-border bg-light-gray p-5">
               <p className="text-sm text-navy font-semibold mb-1">What happens after 7 days</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Your account stops operating until a subscription is active. Starter is R1,499
-                per month, with larger packages for teams. Nothing is charged automatically and
-                your data stays exactly where it is, so you can pick up the moment you subscribe.
+                Your account stops operating until a subscription is active. Packages run from
+                Starter at R1,499 per month to Agency at R12,000. Nothing is charged
+                automatically and your data stays exactly where it is, so you can pick up the
+                moment you subscribe.
               </p>
             </div>
           </div>
@@ -254,8 +255,8 @@ export default function TrialPage() {
                 </button>
 
                 <p className="mt-4 text-center text-xs text-muted-foreground leading-relaxed">
-                  Seven days of full access on Starter (R1,499 per month). After that a
-                  subscription is required to keep operating. No automatic charges, no card today.
+                  Seven days of full access. After that a package is required to keep operating,
+                  from Starter at R1,499 per month. No automatic charges, no card today.
                 </p>
 
                 <p className="mt-4 text-center text-sm text-muted-foreground">
